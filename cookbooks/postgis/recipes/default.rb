@@ -1,3 +1,6 @@
+package "libxml2-dev"
+
+
 # Download Postgis binary
 
 remote_file "/usr/local/src/postgis-2.0.2.tar.gz" do
@@ -8,6 +11,7 @@ bash "Extract and install Postgis" do
 user "root"
 cwd "/usr/local/src"
 code <<-EOH
+export PATH="$PATH:/usr/local/pgsql/bin"
 tar xvzf postgis-2.0.2.tar.gz
 cd postgis-2.0.2
 ./configure
