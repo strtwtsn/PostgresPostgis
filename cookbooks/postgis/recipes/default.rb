@@ -8,7 +8,6 @@ bash "Extract and install Postgis" do
 user "root"
 cwd "/usr/local/src"
 code <<-EOH
-export PATH="$PATH:/usr/local/pgsql/bin"
 tar xvzf postgis-2.0.2.tar.gz
 cd postgis-2.0.2
 ./configure
@@ -20,12 +19,12 @@ end
 bash "configure postgis" do
 user "root"
 code <<-EOH
-createdb  -T template0 -O postgres -U postgres -E UTF8 template_postgis
-createlang plpgsql -U postgres -d template_postgis
-psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/postgis.sql
-psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/spatial_ref_sys.sql
-psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/rtpostgis.sql
-psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/topology.sql
+/usr/local/pgsql/bin/createdb  -T template0 -O postgres -U postgres -E UTF8 template_postgis
+/usr/local/pgsql/bin/createlang plpgsql -U postgres -d template_postgis
+/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/postgis.sql
+/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/spatial_ref_sys.sql
+/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/rtpostgis.sql
+/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/topology.sql
 ldconfig
 EOH
 end
