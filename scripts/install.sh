@@ -8,5 +8,5 @@ cd /usr/local/src/ruby-enterprise-1.8.7-2012.02/
 ./installer --no-tcmalloc --dont-install-useful-gems --no-dev-docs --auto /usr/local
 rm /usr/local/src/ruby-enterprise-1.8.7-2012.02.tar.gz
 /usr/local/bin/gem install chef ruby-shadow --no-ri --no-rdoc
-sudo git clone https://github.com/strtwtsn/PPE_DB.git /var/chef
+sudo git clone https://github.com/strtwtsn/PostgresPostgis.git /var/chef
 /usr/local/bin/chef-solo -c /var/chef/config/chefsolo.rb -j /var/chef/roles/ppedb.json
