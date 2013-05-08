@@ -1,2 +1,1 @@
-{ "run_list": [ "recipe[Oniguruma]"] }
-
+{ "run_list": [ "recipe[GDAL]","recipe[GEOS]","recipe[proj4]","recipe[postgres]","recipe[postgis]","recipe[PPE_Libs]","recipe[sphinx]","recipe[Oniguruma]"] }
