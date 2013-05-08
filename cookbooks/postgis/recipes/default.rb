@@ -25,10 +25,15 @@ user "root"
 code <<-EOH
 /usr/local/pgsql/bin/createdb  -T template0 -O postgres -U postgres -E UTF8 template_postgis
 /usr/local/pgsql/bin/createlang plpgsql -U postgres -d template_postgis
-/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/postgis.sql
-/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/spatial_ref_sys.sql
-/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/rtpostgis.sql
-/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/topology.sql
+/usr/local/pgsql/bin/psql -d template_postgis -U postgres -U postgres -c "CREATE EXTENSION postgis;"
+#/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/postgis.sql
+#/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/spatial_ref_sys.sql
+#/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/rtpostgis.sql
+#/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/topology.sql
+#/usr/local/pgsql/bin/psql -d template_postgis -U postgres -f /usr/local/pgsql/share/contrib/postgis-2.0/legacy.sql
+/usr/local/pgsql/bin/psql -d template_postgis -U postgres -c "CREATE EXTENSION postgis_topology;"
+/usr/local/pgsql/bin/psql -d postgres -U postgres -c "CREATE USER ppe"
+/usr/local/pgsql/bin/psql -d postgres -U postgres -c "ALTER USER ppe WITH SUPERUSER CREATEDB REPLICATION;"
 ldconfig
 EOH
 end

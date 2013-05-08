@@ -68,3 +68,12 @@ service "postgresql" do
 supports :restart => true, :status => true, :reload => true
 action [:enable,:start]
 end
+
+template "/usr/local/pgsql/data/pg_hba.conf" do
+  source "pg_hba.conf.erb"
+  owner "postgres"
+  group "postgres"
+  mode 0600
+  notifies :restart, resources(:service => "postgresql"), :immediately
+end
+
