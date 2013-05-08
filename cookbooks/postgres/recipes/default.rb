@@ -28,9 +28,8 @@ end
 bash "Set postgres paths" do
 user "root"
 code <<-EOH
-sudo echo "export LD_LIBRARY_PATH=/usr/local/pgsql/lib" | sudo tee -a ~postgres/.profile
-sudo echo "export PATH=$PATH:/usr/local/pgsql/bin" | sudo tee -a ~postgres/.profile
-source /etc/profile
+echo PATH="/usr/local/pgsql/bin/:$PATH" >> /etc/profile
+echo PATH="/usr/local/pgsql/share/contrib/postgis-2.0:$PATH" >> /etc/profile
 EOH
 end
 
