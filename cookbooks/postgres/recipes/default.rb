@@ -18,11 +18,14 @@ make install
 EOH
 end
 
-user "postgres" do
-supports :manage_home => true
-home "/home/postgres"
+bash "Create postgres user" do
+user "root"
+code <<-EOH
+read -s -p "Please choose a password for the postgres user: "  password
+useradd -m postgres
+passwd postgres $password
+EOH
 end
-
 
 bash "Set postgres paths" do
 user "root"
