@@ -12,7 +12,13 @@ This script install installs the following:-
 - PROJ 4.8.0
 
 - GDAL 1.9.2
+
 - Postgresql 9.2.3
+
+- Oniguruma
+
+- Sphinx
+
 
 To begin the install run the install.sh script from the scripts directory.
 
