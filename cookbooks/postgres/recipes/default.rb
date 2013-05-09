@@ -19,7 +19,6 @@ EOH
 end
 
 user "postgres" do
-password "postgres"
 supports :manage_home => true
 home "/home/postgres"
 end
