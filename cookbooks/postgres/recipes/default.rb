@@ -30,7 +30,7 @@ end
 bash "Create PPE user" do
 user "postgres"
 code <<-EOH
-createuser -P -S -D -R -e ppe
+/usr/local/pgsql/bin/createuser -P -S -D -R -e ppe
 EOH
 end
 
