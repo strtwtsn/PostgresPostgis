@@ -28,7 +28,6 @@ code <<-EOH
 /usr/local/pgsql/bin/psql -d template_postgis -U postgres -c "CREATE EXTENSION postgis;"
 /usr/local/pgsql/bin/psql -d template_postgis -U postgres -c "CREATE EXTENSION postgis_topology;"
 /usr/local/pgsql/bin/psql -d template_postgis -U postgres < /usr/local/src/postgis-2.0.2/postgis/legacy.sql
-/usr/local/pgsql/bin/psql -d postgres -U postgres -c "CREATE USER ppe"
 /usr/local/pgsql/bin/psql -d postgres -U postgres -c "ALTER USER ppe WITH SUPERUSER CREATEDB REPLICATION;"
 ldconfig
 EOH
