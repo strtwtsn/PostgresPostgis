@@ -27,6 +27,17 @@ passwd postgres $password
 EOH
 end
 
+bash "Create PPE user" do
+user "postgres"
+code <<-EOH
+createuser -P -S -D -R -e ppe
+EOH
+end
+
+
+
+
+
 bash "Set postgres paths" do
 user "root"
 code <<-EOH
