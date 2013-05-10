@@ -41,8 +41,8 @@ end
 bash "Set postgres paths" do
 user "root"
 code <<-EOH
-echo PATH="/usr/local/pgsql/bin/:$PATH" >> /etc/profile
-echo PATH="/usr/local/pgsql/share/contrib/postgis-2.0:$PATH" >> /etc/profile
+echo PATH="/usr/local/pgsql/bin/:\$PATH" >> /etc/profile
+echo PATH="/usr/local/pgsql/share/contrib/postgis-2.0:\$PATH" >> /etc/profile
 EOH
 end
 
